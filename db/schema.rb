@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203031120) do
+ActiveRecord::Schema.define(version: 20160203040539) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "clientname"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160203031120) do
     t.text     "symptoms"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "client_id"
   end
 
 end
