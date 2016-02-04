@@ -17,17 +17,20 @@
 
 
 body {
-    padding-top: 50px;
+    padding-top: 80px;
     }
 
     
+hr {
     
-
-
-li {
-    list-style-type: none;
-    
+    width: 95%;
 }
+
+
+//li {
+    //list-style-type: none;
+    
+//}
 
 .nav_ul_item {
     padding-left: 25px;
@@ -76,15 +79,19 @@ h2 {
 }
 
 .client_info {
-    margin-top: 10px;
+    margin-top: 20px;
     
 }
 
 .gravatar {
-    border-radius: 10px;
+    border-radius: 50px;
     
 }
 
+#gravatarshow {
+    padding-top: 70px;
+    
+}
 
 .well {
     background-color: #EDEDED;

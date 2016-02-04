@@ -10,7 +10,7 @@ integer: telephone, post_code
 > client id must be present
 
 Testing spec for client:
-string: username, email
+string: clientname, email
 
 > username must be present
 > username must be between 3 characters and less than 40 characters

@@ -1,0 +1,39 @@
+
+<%= render 'shared/page_title', title: @enrollment.name %>
+
+<div class="row">
+    <div class="col-md-4 pull-right center" id="gravatarshow">
+        <%= gravatar_for @enrollment.client, size: 200, class: 'gravatar_show' %>
+        <p>
+            <h5>Enrolled by: <%= @enrollment.client.clientname %> </h5>
+        </p>
+    </div>
+    <div class="col-md-8">
+        <%= link_to "Edit this Enrollment", edit_enrollment_path(@enrollment), class: "btn btn-success pull-right" %>
+        <h3><%= @enrollment.name %></h3>
+        <div class="well">
+            <p>
+                <strong>Client's Detail:</strong>
+            </p>
+            
+                <ul>
+                    <li><strong>Name: </strong><%= @enrollment.name %></li>
+                    <li><strong>Last name: </strong> <%= @enrollment.last_name %></li>
+                    <li><strong>Date of Birth: </strong> <%= @enrollment.dob %></li>
+                    <li><strong>Address:</strong> <%= @enrollment.address %></li>
+                    <li><strong>Suburb: </strong> <%= @enrollment.suburb %></li>
+                    <li><strong>Telephone: </strong> <%= @enrollment.telephone %></li>
+                    <li><strong>Post Code:</strong> <%= @enrollment.post_code %></li>
+                    <li><strong>Occupation:</strong> <%= @enrollment.occupation %></li>
+                    <li><strong>Past Medical History: </strong><%= @enrollment.past_medical_history %></li>
+                    <li><strong>Medication: </strong> <%= @enrollment.medication %></li>
+                    <li><strong>Symptoms: </strong><%= @enrollment.symptoms %></li>
+                </ul>
+        </div>
+    </div>
+</div>
+<h5><%= link_to "Return to Enrollment Listing", enrollments_path, class: "btn btn-success btn-small" %></h5>
+
+<br>
+<br>
+

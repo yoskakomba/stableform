@@ -1,0 +1,26 @@
+<%= render 'shared/page_title', title: "All Enrollments" %>
+<% @enrollments.each do |enrollment| %>
+  <div class="row">
+    
+    <div class="col-md-4">
+      <section class="client_info center">
+        <%= gravatar_for enrollment.client, size: 100 %>
+        <h5>Client name: <%= enrollment.client.clientname %></h5>
+      </section>
+    </div>
+    
+    <div class="col-lg-4 well">
+      <h4><%= link_to enrollment.name, enrollment_path(enrollment) %></h4>
+      
+      <p><%= enrollment.address %></p>
+      <p><%= enrollment.suburb %></p>
+      
+      <p>
+        <span class='quiet'><small> <%= time_ago_in_words(enrollment.created_at) %> ago</small></span>
+      </p>
+
+    </div>
+  </div>
+  <hr/>
+<% end %>
+

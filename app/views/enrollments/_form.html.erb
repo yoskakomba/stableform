@@ -1,0 +1,44 @@
+
+<%= render 'shared/errors', obj: @enrollment %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for@enrollment do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+      
+      <%= f.label :dob %>
+      <%= f.text_field :dob %>
+      
+      <%= f.label :suburb %>
+      <%= f.text_field :suburb %>
+      
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+      
+      <%= f.label :telephone %>
+      <%= f.text_field :telephone %>
+      
+      <%= f.label :post_code %>
+      <%= f.text_field :post_code %>
+      
+      <%= f.label :occupation %>
+      <%= f.text_field :occupation %>
+      
+      <%= f.label :past_medical_history %>
+      <%= f.text_area :past_medical_history, rows: 5 %>
+      
+      <%= f.label :medication %>
+      <%= f.text_area :medication, rows: 5 %>
+      
+      <%= f.label :symptoms %>
+      <%= f.text_area :symptoms, rows: 5 %>
+      
+      <%= f.submit(@enrollment.new_record? ? 'Create Enrollment' : 'Edit Enrollment', class: "btn btn-success") %>
+      
+    <% end %>
+  </div>
+</div><br><br><br><br><br><br>
