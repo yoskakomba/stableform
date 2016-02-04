@@ -1,4 +1,7 @@
 <%= render 'shared/page_title', title: "All Enrollments" %>
+
+<%= will_paginate %>
+
 <% @enrollments.each do |enrollment| %>
   <div class="row">
     
@@ -16,11 +19,15 @@
       <p><%= enrollment.suburb %></p>
       
       <p>
-        <span class='quiet'><small> <%= time_ago_in_words(enrollment.created_at) %> ago</small></span>
+        <span class='quiet'><small> Created: <%= time_ago_in_words(enrollment.created_at) %> ago, </small></span>
+        <span class='quiet'><small> Updated: <%= time_ago_in_words(enrollment.updated_at) %> ago</small></span>
       </p>
 
     </div>
   </div>
   <hr/>
 <% end %>
+
+<%= will_paginate %>
+<br><br><br>
 

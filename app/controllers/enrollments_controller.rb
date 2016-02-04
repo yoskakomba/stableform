@@ -1,7 +1,7 @@
 class EnrollmentsController < ApplicationController
   
   def index
-    @enrollments = Enrollment.all
+    @enrollments = Enrollment.paginate(page: params[:page], per_page: 4)
   end
   
   def show
