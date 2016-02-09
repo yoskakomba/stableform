@@ -32,6 +32,18 @@
       <%= f.select(:exercise, options_for_select([['Never', 'Never'], ['Light 1-2 times', 'Light 1-2 times'],
       ['Moderate 3-4 times', 'Moderate 3-4 times'], ['Competitive 5-7 times', 'Competitive 5-7 times']])) %>
       
+      <strong>Reference: </strong>
+      <%= f.collection_check_boxes :reference_ids, Reference.all, :id, :name do |cb| %>
+        <% cb.label(class: "checkbox-inline") {cb.check_box(class: "checkbox") + cb.text} %>
+      <% end %>
+      <br><br>
+      
+      <strong>Preference: </strong>
+      <%= f.collection_check_boxes :preference_ids, Preference.all, :id, :name do |cb| %>
+        <% cb.label(class: "checkbox-inline") {cb.check_box(class: "checkbox") + cb.text} %>
+      <% end %>
+      <br><br>
+      
       <%= f.label :past_medical_history %>
       <%= f.text_area :past_medical_history, rows: 5 %>
       

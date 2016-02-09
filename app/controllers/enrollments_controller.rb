@@ -47,7 +47,7 @@ class EnrollmentsController < ApplicationController
     def enrollment_params
       params.require(:enrollment).permit(:name, :last_name, :dob, :address,
       :suburb, :occupation, :past_medical_history, :medication, :symptoms,
-      :telephone, :post_code)
+      :telephone, :post_code, :exercise, reference_ids: [], preference_ids: [])
     end
     
     def set_enrollment
