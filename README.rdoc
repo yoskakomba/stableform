@@ -17,3 +17,19 @@ string: clientname, email
 > email must be present
 > email must be unique
 > email must be valid
+
+Clients :
+
+What we have already:
+- client model and validations
+- Client table with columns clientname and email
+
+What we need to do:
+- add password to the clients table so clients can be authenticated and logged integer
+- use email as log in credentials, since email is unique
+- ability to register new clients to use the app
+- ability to display clients profile : done
+- abilitiy to list clients using the app : done
+- ability for clients to login and log out of the app : done
+- restrict actions like create recipe, edit recipe and like feature to logged in clients only :
+- restricting edit of recipes by clients who created the enrollments : done

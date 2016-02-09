@@ -1,0 +1,30 @@
+<%= render 'shared/page_title', title: "Client: " + @client.clientname %>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 center">
+    <%= gravatar_for @client, size: 200 %>
+    <hr/>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 center">
+    <h3><em>Massage Enrollments:</em></h3>
+    <%= will_paginate @enrollments %>
+  </div>
+</div>
+
+<% @enrollments.each do |enrollment| %> 
+  <div class="col-lg-6 well col-lg-offset-3">
+    <h4><%= link_to enrollment.name, enrollment_path(enrollment) %></h4>
+    
+    <p><%= enrollment.address %></p>
+    <p><%= enrollment.suburb %></p>
+    
+    <p>
+      <span class='quiet'><small> Created: <%= time_ago_in_words(enrollment.created_at) %> ago, </small></span>
+      <span class='quiet'><small> Updated: <%= time_ago_in_words(enrollment.updated_at) %> ago</small></span>
+    </p>
+    
+  </div><br/><br/><br/>
+<% end %>

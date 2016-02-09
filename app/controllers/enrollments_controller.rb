@@ -1,11 +1,14 @@
 class EnrollmentsController < ApplicationController
+  before_action :set_enrollment, only: [:edit, :update, :show]
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update]
   
   def index
     @enrollments = Enrollment.paginate(page: params[:page], per_page: 4)
   end
   
   def show
-    @enrollment = Enrollment.find(params[:id])
+    
   end
   
   def new
@@ -14,7 +17,7 @@ class EnrollmentsController < ApplicationController
   
   def create
     @enrollment = Enrollment.new(enrollment_params)
-    @enrollment.client = Client.find(2)
+    @enrollment.client = current_user
     
     if @enrollment.save
       flash[:success] = "Your enrollment was created successfully!"
@@ -25,13 +28,12 @@ class EnrollmentsController < ApplicationController
   end
   
   def edit
-    @enrollment = Enrollment.find(params[:id])
+    
   end
   
   def update
-    @enrollment = Enrollment.find(params[:id])
+   
     if @enrollment.update(enrollment_params)
-      #do something
       flash[:success] = "Your enrollment was updated successfully!"
       redirect_to enrollment_path(@enrollment)
     else
@@ -46,6 +48,17 @@ class EnrollmentsController < ApplicationController
       params.require(:enrollment).permit(:name, :last_name, :dob, :address,
       :suburb, :occupation, :past_medical_history, :medication, :symptoms,
       :telephone, :post_code)
+    end
+    
+    def set_enrollment
+       @enrollment = Enrollment.find(params[:id])
+    end
+    
+    def require_same_user
+      if current_user != @enrollment.client
+        flash[:danger] = "You can only edit your own recipes"
+        redirect_to enrollments_path
+      end
     end
     
     

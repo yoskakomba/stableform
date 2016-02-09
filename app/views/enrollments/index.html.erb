@@ -1,4 +1,4 @@
-<%= render 'shared/page_title', title: "All Enrollments" %>
+<%= render 'shared/page_title', title: "All Clients' Massage Enrollments" %>
 
 <%= will_paginate %>
 
@@ -7,11 +7,12 @@
     
     <div class="col-md-4">
       <section class="client_info center">
-        <%= gravatar_for enrollment.client, size: 100 %>
+        <%= link_to gravatar_for(enrollment.client, size: 100), client_path(enrollment.client) %>
         <h5>Client name: <%= enrollment.client.clientname %></h5>
       </section>
     </div>
     
+
     <div class="col-lg-4 well">
       <h4><%= link_to enrollment.name, enrollment_path(enrollment) %></h4>
       
@@ -29,5 +30,5 @@
 <% end %>
 
 <%= will_paginate %>
-<br><br><br>
+<br><br><br><br/><br/>
 

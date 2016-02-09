@@ -1,0 +1,19 @@
+<%= render 'shared/errors', obj: @client %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for @client do |f| %>
+      <%= f.label :clientname %>
+      <%= f.text_field :clientname %>
+      
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+      
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      
+      <%= f.submit(@client.new_record? ? 'Register' : 'Edit profile', class: "btn btn-success") %>
+      
+    <% end %>
+  </div>
+</div><br><br><br><br><br><br>

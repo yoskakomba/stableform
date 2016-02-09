@@ -57,13 +57,22 @@ h1 {
 }
 
 h2 {
-    font-size: 1.2em;
+    font-size: 2em;
     margin-bottom: 30px;
     text-align: center;
     font-weight: normal;
     color: #777;
     
 }
+
+h3 {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: normal;
+    color: #777;
+}
+
 
 .left {
     text-align: left;
@@ -127,3 +136,26 @@ span.picture {
     
 }
 
+/*HERO SECTION */
+.hero-spacer {
+    margin-top: 50px;
+}
+
+.hero-feature {
+    margin-bottom: 30px;
+}
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #777;
+  text-align: left;
+}

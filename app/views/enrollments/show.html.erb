@@ -3,13 +3,16 @@
 
 <div class="row">
     <div class="col-md-4 pull-right center" id="gravatarshow">
-        <%= gravatar_for @enrollment.client, size: 200, class: 'gravatar_show' %>
+        <%= link_to gravatar_for(@enrollment.client, size: 200), client_path(@enrollment.client) %>
         <p>
             <h5>Enrolled by: <%= @enrollment.client.clientname %> </h5>
         </p>
     </div>
     <div class="col-md-8">
-        <%= link_to "Edit this Enrollment", edit_enrollment_path(@enrollment), class: "btn btn-success pull-right" %>
+        <% if logged_in? and @enrollment.client == current_user %>
+            <%= link_to "Edit this Enrollment", edit_enrollment_path(@enrollment), class: "btn btn-success pull-right" %>
+        <% end %>
+        
         <h3><%= @enrollment.name %></h3>
         <div class="well">
             <p>
