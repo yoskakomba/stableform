@@ -9,7 +9,7 @@ class LoginsController < ApplicationController
     if client && client.authenticate(params[:password])
       session[:client_id] = client.id
       flash[:success] = "You are logged in"
-      redirect_to enrollments_path
+      redirect_to enrollment_path
     else
       flash.now[:danger] = "Your email address or password does not match"
       render 'new'

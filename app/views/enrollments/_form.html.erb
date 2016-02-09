@@ -28,6 +28,10 @@
       <%= f.label :occupation %>
       <%= f.text_field :occupation %>
       
+      <%= f.label :exercise %>
+      <%= f.select(:exercise, options_for_select([['Never', 'Never'], ['Light 1-2 times', 'Light 1-2 times'],
+      ['Moderate 3-4 times', 'Moderate 3-4 times'], ['Competitive 5-7 times', 'Competitive 5-7 times']])) %>
+      
       <%= f.label :past_medical_history %>
       <%= f.text_area :past_medical_history, rows: 5 %>
       
@@ -39,6 +43,6 @@
       
       <%= f.submit(@enrollment.new_record? ? 'Create Enrollment' : 'Edit Enrollment', class: "btn btn-success") %>
       
-    <% end %>
+    <% end %> 
   </div>
 </div><br><br><br><br><br><br>

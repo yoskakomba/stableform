@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  root 'clients#new'
   
-  get '/home', to: 'pages#home'
+  get '/home', to: 'clients#new'
   
   resources :enrollments
   

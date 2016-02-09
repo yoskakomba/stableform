@@ -16,7 +16,7 @@ class ClientsController < ApplicationController
       #do something
       flash[:success] = "Your account has been created successfully"
       session[:client_id] = @client.id
-      redirect_to enrollments_path
+      redirect_to new_enrollment_path
     else
       render 'new'
     end

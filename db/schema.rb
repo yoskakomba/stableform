@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204073337) do
+ActiveRecord::Schema.define(version: 20160209043410) do
+
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "clients", force: :cascade do |t|
     t.string   "clientname"
@@ -19,6 +23,30 @@ ActiveRecord::Schema.define(version: 20160204073337) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+  end
+
+  create_table "conditions", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "enrollment_areas", force: :cascade do |t|
+    t.integer "area_id"
+    t.integer "enrollment_id"
+  end
+
+  create_table "enrollment_conditions", force: :cascade do |t|
+    t.integer "condition_id"
+    t.integer "enrollment_id"
+  end
+
+  create_table "enrollment_preferences", force: :cascade do |t|
+    t.integer "preference_id"
+    t.integer "enrollment_id"
+  end
+
+  create_table "enrollment_references", force: :cascade do |t|
+    t.integer "reference_id"
+    t.integer "enrollment_id"
   end
 
   create_table "enrollments", force: :cascade do |t|
@@ -36,6 +64,15 @@ ActiveRecord::Schema.define(version: 20160204073337) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "client_id"
+    t.string   "exercise"
+  end
+
+  create_table "preferences", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "references", force: :cascade do |t|
+    t.string "name"
   end
 
 end
