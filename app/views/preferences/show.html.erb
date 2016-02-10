@@ -1,4 +1,4 @@
-<%= render 'shared/page_title', title: "All Clients' Massage Enrollments" %>
+<%= render 'shared/page_title', title: "Enrollments for: " + @preference.name %>
 
 <ul class="nav nav-tabs">
   <li class="active">
@@ -9,9 +9,9 @@
   </li>
 </ul>
 
-<%= will_paginate %>
+<%= will_paginate @enrollments %>
 
-<% @enrollments.each do |enrollment| %>
+<% @preference.enrollments.each do |enrollment| %>
   <div class="row">
     
     <div class="col-md-4">
@@ -40,6 +40,6 @@
   <hr/>
 <% end %>
 
-<%= will_paginate %>
+<%= will_paginate @enrollments %>
 <br><br><br><br/><br/>
 

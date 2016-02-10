@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209043410) do
+ActiveRecord::Schema.define(version: 20160210022740) do
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "bodies", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "body_areas", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "body_conditions", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "bodyareas", force: :cascade do |t|
   end
 
   create_table "clients", force: :cascade do |t|
@@ -34,8 +49,28 @@ ActiveRecord::Schema.define(version: 20160209043410) do
     t.integer "enrollment_id"
   end
 
+  create_table "enrollment_bodies", force: :cascade do |t|
+    t.integer "body_id"
+    t.integer "enrollment_id"
+  end
+
+  create_table "enrollment_body_areas", force: :cascade do |t|
+    t.integer "body_area_id"
+    t.integer "enrollment_id"
+  end
+
+  create_table "enrollment_body_conditions", force: :cascade do |t|
+    t.integer "body_condition_id"
+    t.integer "enrollment_id"
+  end
+
   create_table "enrollment_conditions", force: :cascade do |t|
     t.integer "condition_id"
+    t.integer "enrollment_id"
+  end
+
+  create_table "enrollment_healths", force: :cascade do |t|
+    t.integer "health_id"
     t.integer "enrollment_id"
   end
 
@@ -67,11 +102,19 @@ ActiveRecord::Schema.define(version: 20160209043410) do
     t.string   "exercise"
   end
 
+  create_table "healths", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "preferences", force: :cascade do |t|
     t.string "name"
   end
 
   create_table "references", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "skipareas", force: :cascade do |t|
     t.string "name"
   end
 

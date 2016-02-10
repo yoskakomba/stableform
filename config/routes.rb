@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   
   get '/logout', to: 'logins#destroy'
   
-  
+  resources :references, only: [:new, :create, :show]
+  resources :preferences, only: [:new, :create, :show]
 end

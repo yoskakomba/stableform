@@ -1,0 +1,15 @@
+<%= render 'shared/page_title', title: "Create new references" %>
+
+<%= render 'shared/errors', obj: @reference %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for @reference do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      
+      <%= f.submit 'Create reference', class: "btn btn-success" %>
+      
+    <% end %> 
+  </div>
+</div>

@@ -4,7 +4,10 @@ class Enrollment < ActiveRecord::Base
   has_many :references, through: :enrollment_references
   has_many :enrollment_preferences
   has_many :preferences, through: :enrollment_preferences
-  
+  has_many :enrollment_bodies
+  has_many :bodies, through: :enrollment_bodies
+  has_many :enrollment_healths
+  has_many :healths, through: :enrollment_healths
   validates :client_id, presence: true
   validates :name, :last_name, :address, :suburb, :occupation, :past_medical_history, :medication, :symptoms, 
                                           presence: true, length: { minimum: 5, maximum: 100 }

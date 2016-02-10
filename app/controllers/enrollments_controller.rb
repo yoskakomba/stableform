@@ -21,7 +21,7 @@ class EnrollmentsController < ApplicationController
     
     if @enrollment.save
       flash[:success] = "Your enrollment was created successfully!"
-      redirect_to enrollments_path
+      redirect_to client_path(@enrollment.client)
     else
       render :new
     end

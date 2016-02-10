@@ -1,0 +1,15 @@
+<%= render 'shared/page_title', title: "Create new preferences" %>
+
+<%= render 'shared/errors', obj: @preference %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for @preference do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      
+      <%= f.submit 'Create preference', class: "btn btn-success" %>
+      
+    <% end %> 
+  </div>
+</div>
