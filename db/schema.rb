@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210022740) do
+ActiveRecord::Schema.define(version: 20160211064511) do
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160210022740) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.boolean  "admin",           default: false
   end
 
   create_table "conditions", force: :cascade do |t|
@@ -100,6 +101,10 @@ ActiveRecord::Schema.define(version: 20160210022740) do
     t.datetime "updated_at"
     t.integer  "client_id"
     t.string   "exercise"
+    t.string   "massage"
+    t.string   "newsletter"
+    t.string   "private_health_fund"
+    t.string   "terms"
   end
 
   create_table "healths", force: :cascade do |t|

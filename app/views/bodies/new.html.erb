@@ -1,0 +1,15 @@
+<%= render 'shared/page_title', title: "Create a new skip body area" %>
+
+<%= render 'shared/errors', obj: @body %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for @body do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      
+      <%= f.submit 'Skip Body Area', class: "btn btn-success" %>
+      
+    <% end %> 
+  </div>
+</div>

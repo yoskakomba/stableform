@@ -9,15 +9,30 @@
         </p>
     </div>
     <div class="col-md-8">
-        <% if logged_in? and @enrollment.client == current_user %>
+        <% if logged_in? and (@enrollment.client == current_user || current_user.admin?) %>
             <%= link_to "Edit this Enrollment", edit_enrollment_path(@enrollment), class: "btn btn-success pull-right" %>
+        <% end %>
+        <% if current_user.admin? %>
+            <%= link_to "[Delete Enrollment]", @enrollment, method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
         
         <h3><%= @enrollment.name %></h3>
         <div class="well">
-            <p>
-                <strong>Client's Detail:</strong>
-            </p>
+            <h3 class="text-center">
+                <strong>Client's Detail</strong>
+            </h3>
+            <% if @enrollment.references.any? %>
+              <p><strong>Reference: </strong> <%= render @enrollment.references %></p>
+            <% end %>
+            <% if @enrollment.preferences.any? %>
+              <p><strong>Preference: </strong><%= render @enrollment.preferences %></p>
+            <% end %>
+            <% if @enrollment.preferences.any? %>
+              <p><strong>Health Condition: </strong><%= render @enrollment.healths %></p>
+            <% end %>
+            <% if @enrollment.preferences.any? %>
+              <p><strong>Restricted body area: </strong><%= render @enrollment.bodies %></p>
+            <% end %>
             
                 <ul>
                     <li><strong>Name: </strong><%= @enrollment.name %></li>
@@ -30,15 +45,18 @@
                     <li><strong>Occupation:</strong> <%= @enrollment.occupation %></li>
                     <li><strong>Past Medical History: </strong><%= @enrollment.past_medical_history %></li>
                     <li><strong>Exercise: </strong><%= @enrollment.exercise %></li>
+                    <li><strong>Massage: </strong><%= @enrollment.massage %></li>
                     <li><strong>Medication: </strong> <%= @enrollment.medication %></li>
                     <li><strong>Symptoms: </strong><%= @enrollment.symptoms %></li>
-                    
+                    <li><strong>Newsletter: </strong><%= @enrollment.newsletter %></li>
+                    <li><strong>Private Health Fund: </strong><%= @enrollment.private_health_fund %></li>
                 </ul>
                 
         </div>
     </div>
 </div>
-<h5><%= link_to "Return to Enrollment Listing", enrollments_path, class: "btn btn-success btn-small" %></h5>
+<h5><%= link_to "Return to Enrollment Listing", enrollments_path, class: "btn btn-success btn-small" %></h5><br/>
+
 <br>
 <br>
 <br>

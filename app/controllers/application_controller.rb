@@ -16,7 +16,22 @@ class ApplicationController < ActionController::Base
   def require_user
     if !logged_in?
       flash[:danger] = "You must be logged in to perform that action"
-      redirect_to :back
+      redirect_to client_path(current_user)
     end
   end
+  
+  def require_same_user
+    if !logged_in?
+      flash[:danger] = "You can only edit your own recipes"
+      redirect_to client_path(current_user)
+    end
+  end
+  
+  def authorize_admin
+    if !current_user.admin
+      flash[:danger] = "I am sorry only admin can view this page"
+      redirect_to client_path(current_user)
+    end
+  end
+
 end

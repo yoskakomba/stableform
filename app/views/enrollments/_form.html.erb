@@ -11,7 +11,7 @@
       <%= f.text_field :last_name %>
       
       <%= f.label :dob %>
-      <%= f.text_field :dob %>
+      <%= f.text_field :dob, placeholder: "Date of birth ex: 12/12/1980" %>
       
       <%= f.label :suburb %>
       <%= f.text_field :suburb %>
@@ -19,7 +19,7 @@
       <%= f.label :address %>
       <%= f.text_field :address %>
       
-      <%= f.label :telephone %>
+      <%= f.label "Phone Number" %>
       <%= f.text_field :telephone %>
       
       <%= f.label :post_code %>
@@ -27,6 +27,15 @@
       
       <%= f.label :occupation %>
       <%= f.text_field :occupation %>
+      
+      <strong>Check if you want to receive newsletter</strong>
+      <label class="checkbox inline">
+        <%= f.label "Yes" %>
+        <%= f.check_box(:newsletter, {}, "yes", "no") %>
+      </label>
+      
+      <%= f.label "Private Health Fund" %>
+      <%= f.text_field :private_health_fund, placeholder: "Leave blank if you don't have" %>
       
       <%= f.label :exercise %>
       <%= f.select(:exercise, options_for_select([['Never', 'Never'], ['Light 1-2 times', 'Light 1-2 times'],
@@ -44,6 +53,18 @@
       <% end %>
       <br><br>
       
+      <strong>Body area you want to skip: </strong>
+      <%= f.collection_check_boxes :body_ids, Body.all, :id, :name do |cb| %>
+        <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+      <% end %>
+      <br><br>
+      
+      <strong>Health Condition: </strong>
+      <%= f.collection_check_boxes :health_ids, Health.all, :id, :name do |cb| %>
+        <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+      <% end %>
+      <br><br>
+      
       <%= f.label :past_medical_history %>
       <%= f.text_area :past_medical_history, rows: 5 %>
       
@@ -52,6 +73,29 @@
       
       <%= f.label :symptoms %>
       <%= f.text_area :symptoms, rows: 5 %>
+    
+      <h3><strong>Terms and Condition</strong></h3>
+        <strong>Arrival Time</strong>
+        <p>Please arrive at least 10 minutes before your treatment. New clients will be asked to fill out a record form.</p>
+        
+        <strong>Arriving Late</strong>
+        <p>All treatments conclude at the scheduled time.</p>
+        
+        <strong>Cancellation Policy</strong>
+        <p>When you reschedule or cancel an appointment, we require 24 hours notice; cancellation without notice will incur a cancellation fee of $30. 
+        Confirmation of an appointment is acknowledgement of this cancellation policy.</p>
+        
+        <strong>Instant Private Health Fund Rebates</strong>
+        <p>Instantly claim rebates with your private health fund on HICAPS.</p>
+        
+        <strong>Disclaimer: </strong>
+        <p>Myotherapy and Remedial Massage aims to relieve the build up of muscle tension within the body. Stable Massage & Stable Health Clinic 
+        does not take responsibility for any symptoms or aches which may occur after treatment.</p>
+      <label class="checkbox inline">
+        <%= f.label "I agree with terms and conditions" %> 
+        <%= f.check_box :terms %>
+      </label>
+      <br>
       
       <%= f.submit(@enrollment.new_record? ? 'Create Enrollment' : 'Edit Enrollment', class: "btn btn-success") %>
       

@@ -17,7 +17,9 @@
     <div class="col-md-4">
       <section class="client_info center">
         <%= link_to gravatar_for(enrollment.client, size: 100), client_path(enrollment.client) %>
-        <h5>Client name: <%= enrollment.client.clientname %></h5>
+                <h5>Client name: <%= enrollment.client.clientname %></h5>
+        
+        
       </section>
     </div>
     
@@ -30,7 +32,7 @@
       <p>Preference: <%= render enrollment.preferences %></p>
       <p>Reference: <%= render enrollment.references %></p>
       
-      <p>
+      <p> 
         <span class='quiet'><small> Created: <%= time_ago_in_words(enrollment.created_at) %> ago, </small></span>
         <span class='quiet'><small> Updated: <%= time_ago_in_words(enrollment.updated_at) %> ago</small></span>
       </p>

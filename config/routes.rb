@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   
   resources :references, only: [:new, :create, :show]
   resources :preferences, only: [:new, :create, :show]
+  resources :bodies, only: [:new, :create, :show]
+  resources :healths, only: [:new, :create, :show]
+  
 end

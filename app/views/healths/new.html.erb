@@ -1,0 +1,15 @@
+<%= render 'shared/page_title', title: "Create a new health condition area" %>
+
+<%= render 'shared/errors', obj: @health %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for @health do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      
+      <%= f.submit 'Health Condition', class: "btn btn-success" %>
+      
+    <% end %> 
+  </div>
+</div>

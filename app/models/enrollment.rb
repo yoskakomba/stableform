@@ -1,5 +1,5 @@
 class Enrollment < ActiveRecord::Base
-  belongs_to :client
+  belongs_to :client #HARUS DIILANGIN
   has_many :enrollment_references
   has_many :references, through: :enrollment_references
   has_many :enrollment_preferences
@@ -8,9 +8,9 @@ class Enrollment < ActiveRecord::Base
   has_many :bodies, through: :enrollment_bodies
   has_many :enrollment_healths
   has_many :healths, through: :enrollment_healths
-  validates :client_id, presence: true
-  validates :name, :last_name, :address, :suburb, :occupation, :past_medical_history, :medication, :symptoms, 
-                                          presence: true, length: { minimum: 5, maximum: 100 }
-  validates :dob, :telephone, :post_code, presence: true
+  validates :client_id, presence: true #HARUS DIILANGIN
+  validates :name, :address, :suburb, presence: true, length: { maximum: 100 }
+  validates :dob, :post_code, presence: true
+  validates :telephone, format: { with: /\d{3}-\d{3}-\d{4}/, message: "cant be in bad format" }
   default_scope -> { order(updated_at: :desc) }
 end

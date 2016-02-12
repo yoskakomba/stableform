@@ -14,6 +14,8 @@ class LoginsController < ApplicationController
       flash.now[:danger] = "Your email address or password does not match"
       render 'new'
     end
+    
+    
   end
   
   def destroy
@@ -21,4 +23,6 @@ class LoginsController < ApplicationController
     flash[:success] = "You have logged out"
     redirect_to root_path
   end
+  
+  
 end
