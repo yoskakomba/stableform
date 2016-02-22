@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219060619) do
+ActiveRecord::Schema.define(version: 20160222012959) do
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
@@ -102,7 +102,6 @@ ActiveRecord::Schema.define(version: 20160219060619) do
     t.text     "past_medical_history"
     t.text     "medication"
     t.text     "symptoms"
-    t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "client_id"
     t.string   "exercise"
