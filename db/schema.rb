@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211064511) do
+ActiveRecord::Schema.define(version: 20160219060619) do
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
@@ -70,6 +70,11 @@ ActiveRecord::Schema.define(version: 20160211064511) do
     t.integer "enrollment_id"
   end
 
+  create_table "enrollment_friends", force: :cascade do |t|
+    t.integer "friend_id"
+    t.integer "enrollment_id"
+  end
+
   create_table "enrollment_healths", force: :cascade do |t|
     t.integer "health_id"
     t.integer "enrollment_id"
@@ -105,6 +110,11 @@ ActiveRecord::Schema.define(version: 20160211064511) do
     t.string   "newsletter"
     t.string   "private_health_fund"
     t.string   "terms"
+    t.string   "my_friend"
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "healths", force: :cascade do |t|
@@ -116,6 +126,10 @@ ActiveRecord::Schema.define(version: 20160211064511) do
   end
 
   create_table "references", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "referrals", force: :cascade do |t|
     t.string "name"
   end
 

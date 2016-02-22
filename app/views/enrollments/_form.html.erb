@@ -20,7 +20,7 @@
       <%= f.text_field :address %>
       
       <%= f.label "Phone Number" %>
-      <%= f.text_field :telephone %>
+      <%= f.text_field :telephone, placeholder: "ex: 0421813629" %>
       
       <%= f.label :post_code %>
       <%= f.text_field :post_code %>
@@ -35,7 +35,7 @@
       </label>
       
       <%= f.label "Private Health Fund" %>
-      <%= f.text_field :private_health_fund, placeholder: "Leave blank if you don't have" %>
+      <%= f.text_field :private_health_fund, placeholder: "Leave blank if you don't have any" %>
       
       <%= f.label :exercise %>
       <%= f.select(:exercise, options_for_select([['Never', 'Never'], ['Light 1-2 times', 'Light 1-2 times'],
@@ -45,6 +45,8 @@
       <%= f.collection_check_boxes :reference_ids, Reference.all, :id, :name do |cb| %>
         <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
       <% end %>
+      
+      <%= f.text_field :my_friend, placeholder: "Friend's name - Leave blank if you don't have any" %>
       <br><br>
       
       <strong>Preference: </strong>

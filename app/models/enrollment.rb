@@ -11,6 +11,6 @@ class Enrollment < ActiveRecord::Base
   validates :client_id, presence: true #HARUS DIILANGIN
   validates :name, :address, :suburb, presence: true, length: { maximum: 100 }
   validates :dob, :post_code, presence: true
-  validates :telephone, format: { with: /\d{3}-\d{3}-\d{4}/, message: "cant be in bad format" }
+  validates :telephone, format: { with: /\d[0-9]\)*\z/, message: "bad format, please use accepted Australian format, ex: 0421813629" }
   default_scope -> { order(updated_at: :desc) }
 end
