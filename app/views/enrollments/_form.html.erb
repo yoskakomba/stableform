@@ -4,13 +4,13 @@
 <div class="row">
   <div class="well col-md-8 col-md-offset-2">
     <%= form_for @enrollment do |f| %>
-      <%= f.label :name %>
+      <%= f.label "First Name" %>
       <%= f.text_field :name %>
       
       <%= f.label :last_name %>
       <%= f.text_field :last_name %>
       
-      <%= f.label :dob %>
+      <%= f.label "Date of Birth" %>
       <%= f.text_field :dob, placeholder: "Date of birth ex: 12/12/1980" %>
       
       <%= f.label :suburb %>
@@ -29,18 +29,19 @@
       <%= f.text_field :occupation %>
       
       <strong>Check if you want to receive newsletter</strong>
+      
       <label class="checkbox inline">
-        <%= f.label "Yes" %>
+        <%= f.label "Yes" %>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <%= f.check_box(:newsletter, {}, "yes", "no") %>
-      </label>
+      </label><br/ >
       
       <%= f.label "Private Health Fund" %>
       <%= f.text_field :private_health_fund, placeholder: "Leave blank if you don't have any" %>
-      
-      <%= f.label :exercise %>
+      <br>
+      <%= f.label "Exercise Routine" %>
       <%= f.select(:exercise, options_for_select([['Never', 'Never'], ['Light 1-2 times', 'Light 1-2 times'],
       ['Moderate 3-4 times', 'Moderate 3-4 times'], ['Competitive 5-7 times', 'Competitive 5-7 times']])) %>
-      
+      <br/ >
       <strong>Reference: </strong>
       <%= f.collection_check_boxes :reference_ids, Reference.all, :id, :name do |cb| %>
         <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
@@ -65,6 +66,7 @@
       <%= f.collection_check_boxes :health_ids, Health.all, :id, :name do |cb| %>
         <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
       <% end %>
+    
       <br><br>
       
       <%= f.label :past_medical_history %>
@@ -94,12 +96,12 @@
         <p>Myotherapy and Remedial Massage aims to relieve the build up of muscle tension within the body. Stable Massage & Stable Health Clinic 
         does not take responsibility for any symptoms or aches which may occur after treatment.</p>
       <label class="checkbox inline">
-        <%= f.label "I agree with terms and conditions" %> 
+        <%= f.label "I agree with terms and conditions" %>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <%= f.check_box :terms %>
       </label>
       <br>
       
-      <%= f.submit(@enrollment.new_record? ? 'Create Enrollment' : 'Edit Enrollment', class: "btn btn-success") %>
+      <%= f.submit(@enrollment.new_record? ? 'Submit' : 'Edit Enrollment', class: "btn btn-success") %>
       
     <% end %> 
   </div>
