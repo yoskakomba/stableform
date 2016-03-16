@@ -1,4 +1,4 @@
-<%= render 'shared/page_title', title: "All Clients' Massage Enrollments" %>
+<%= render 'shared/page_title', title: "Clients' History" %>
 
 <ul class="nav nav-tabs">
   <li class="active">
@@ -17,7 +17,7 @@
     <div class="col-md-4">
       <section class="client_info center">
         <%= link_to gravatar_for(enrollment.client, size: 100), client_path(enrollment.client) %>
-                <h5>Client name: <%= enrollment.client.clientname %></h5>
+                <h5>User name: <%= enrollment.client.clientname %></h5>
         
         
       </section>
@@ -27,10 +27,10 @@
     <div class="col-lg-4 well">
       <h4><%= link_to enrollment.name, enrollment_path(enrollment) %></h4>
       
-      <p><%= enrollment.address %></p>
-      <p><%= enrollment.suburb %></p>
-      <p>Preference: <%= render enrollment.preferences %></p>
-      <p>Reference: <%= render enrollment.references %></p>
+      <p><strong>Address:</strong> <%= enrollment.address %></p>
+      <p><strong>Suburb:</strong> <%= enrollment.suburb %></p>
+      <p><strong>Preference:</strong> <%= render enrollment.preferences %></p>
+      <p><strong>Reference:</strong> <%= render enrollment.references %></p>
       
       <p> 
         

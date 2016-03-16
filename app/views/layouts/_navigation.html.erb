@@ -26,10 +26,10 @@
                 
                 <li><%= link_to "Home", root_path %></li>
                 <% if !logged_in? %>
-                  <li><%= link_to "Register Now", register_path %></li>
+                  <li><%= link_to "New Client Form", register_path %></li>
                 <% end %>
                 <% if logged_in? %>
-                  <li><%= link_to "Book Massage Now", new_enrollment_path %></li>
+                  <li><%= link_to "Client New Form", new_enrollment_path %></li>
                   
                   <li class="dropdown">
                     <%= link_to '#', class: "dropdown-toggle", "data-toggle" => "dropdown" do %>
@@ -45,7 +45,7 @@
                     <% end %>
                   </li>
                 <% else %>
-                  <li><%= link_to "Log in", login_path %></li>
+                  <li><%= link_to "Admin Log in", login_path %></li>
                 <% end %>
               
               </ul>
