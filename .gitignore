@@ -16,5 +16,3 @@
 !/log/.keep
 /tmp
 
-# heroku
-public/assets/**
