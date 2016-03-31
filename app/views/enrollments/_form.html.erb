@@ -4,88 +4,66 @@
 <div class="row">
   <div class="well col-md-8 col-md-offset-2" id="clientform">
     <%= form_for @enrollment do |f| %>
-      <div class="row">
-        <div class="col-xs-6">
+      
+        
           <%= f.label "First Name" %>
           <%= f.text_field :name %>
-        </div>
         
-        <div class="col-xs-6">
+        
+       
           <%= f.label :last_name %><br>
           <%= f.text_field :last_name %><br>
-        </div>
+       
         
-      </div>
+      
      
-      <div class="row">
-        <div class="col-xs-6">
+      
+        
         <%= f.label "Date of Birth" %>
         <%= f.text_field :dob, placeholder: "Date of birth ex: 12/12/1980" %>
-        </div>
         
-        <div class="col-xs-6">
+        
+        
           <%= f.label :suburb %>
           <%= f.text_field :suburb %>
-        </div>
-        
-      </div>
       
-      <div class="row">
-        <div class="col-xs-6">
           <%= f.label :address %>
           <%= f.text_field :address %>
-        </div>
+       
         
-        <div class="col-xs-6">
+        
           <%= f.label "Phone Number" %>
           <%= f.text_field :telephone, placeholder: "ex: 0421813629" %>
-        </div>
-        
-      </div>
-
-      <div class="row">
-        <div class="col-xs-6">
+       
+      
           <%= f.label :post_code %>
           <%= f.text_field :post_code %>
-        </div>
+       
         
-        <div class="col-xs-6">
+       
           <%= f.label :occupation %>
           <%= f.text_field :occupation %>
-        </div>
         
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-6">
-          
+        
           <%= f.label "Exercise Routine" %>
           <%= f.select(:exercise, options_for_select([['Never', 'Never'], ['Light 1-2 times', 'Light 1-2 times'],
           ['Moderate 3-4 times', 'Moderate 3-4 times'], ['Competitive 5-7 times', 'Competitive 5-7 times']])) %>
-        </div>
+       
         
-        <div class="col-xs-6">
+        
           <%= f.label "Private Health Fund" %>
           <%= f.text_field :private_health_fund, placeholder: "Leave blank if you don't have any" %>
-        </div>
-      </div>
+        
       
-      <div class="row">
-        <div class="col-md-6">
+      
           <strong>Check if you want to receive newsletter</strong>
           <label class="checkbox inline">
             <%= f.label "Yes" %>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <%= f.check_box(:newsletter, {}, "yes", "no") %>
           </label>
           
-        </div>
-        
-        <div class="col-md-6">
-          
-          
-        </div>
-        
-      </div><br/>
+      
+      <br/>
       
       <strong>Reference: </strong><br>
       <%= f.collection_check_boxes :reference_ids, Reference.all, :id, :name do |cb| %>
